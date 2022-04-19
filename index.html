@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+        function reverse1(string){
+        var output = ""
+        for (let i = string.length-1; i > -1;i--)
+        {
+        output += string[i];
+        }
+        return output;
+        }
+        
+        
+        function reverse2(string){
+        var output = "";
+        var counter = string.length - 1;
+        while (counter > -1){
+        output += string[counter]
+        counter -= 1;
+        }
+        return output;
+        }
+        
+        function reverse3(string){
+        var output = "";
+        var counter = string.length-1;
+        do{
+        output += string[counter];
+        counter -= 1;
+        }
+        while(counter > -1);
+        
+        return output;
+        }
+        
+        
+        function reverse4(string){
+        var output = "";
+        var array = string.split("");
+        array = array.reverse();
+        output = array.join("")
+        return output;
+        }
+        
+        
+        function reverse5(string){
+        array = string.split("");
+        var start = 0;
+        var end = string.length-1;
+        
+        while (start <= end){
+        var temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start += 1;
+        end -= 1;
+        }
+        return array.join("");
+        }
+
+
+        function reverse6(string){
+            if (string.length == 0){
+                return string
+            }
+            else{
+                var new_string = string.slice(1);
+                return(reverse6(new_string))+string.charAt(0);
+            }
+        }
+        var sample = "12345"
+        // console.log(sample.slice(0,sample.length-2))
+        console.log(reverse6(sample))
+        </script>
+</body>
+</html>
